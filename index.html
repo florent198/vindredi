@@ -1,89 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fiche de Dégustation de Vin</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-      background-color: #f8f8f8;
-    }
-    h1 {
-      text-align: center;
-      color: #5a3d31;
-    }
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-    }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #5a3d31;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    button:hover {
-      background-color: #794c3b;
-    }
-    .output {
-      margin-top: 40px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Dégustation de Vin</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icône Instagram -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-  <h1>Fiche de Dégustation</h1>
-  <form id="wineForm">
-    <label for="name">Nom du vin</label>
-    <input type="text" id="name" placeholder="Ex. Château Margaux">
+    <div class="header">
+        <h1>Fiche de Dégustation de Vin</h1>
+        <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank" class="instagram-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
 
-    <label for="vintage">Millésime</label>
-    <input type="text" id="vintage" placeholder="Ex. 2020">
+    <form id="tastingForm">
+        <label for="tasterName">Prénom du dégustateur :</label>
+        <input type="text" id="tasterName" name="tasterName" placeholder="Jean" required>
 
-    <label for="region">Région</label>
-    <input type="text" id="region" placeholder="Ex. Bordeaux">
+        <label for="wineName">Nom du vin :</label>
+        <input type="text" id="wineName" name="wineName" placeholder="Château Margaux" required>
 
-    <label for="color">Couleur</label>
-    <input type="text" id="color" placeholder="Ex. Rouge, Blanc, Rosé">
+        <label for="wineColor">Couleur :</label>
+        <select id="wineColor" name="wineColor">
+            <option value="Rouge">Rouge</option>
+            <option value="Blanc">Blanc</option>
+            <option value="Rosé">Rosé</option>
+        </select>
 
-    <label for="nose">Nez</label>
-    <textarea id="nose" placeholder="Ex. Arômes de fruits rouges, notes boisées"></textarea>
+        <label for="wineLabelImage">Prendre une photo de l'étiquette ou télécharger une image :</label>
+        <input type="file" id="wineLabelImage" name="wineLabelImage" accept="image/*">
+        <button type="button" id="takePhotoButton">Prendre une photo</button>
 
-    <label for="taste">Goût</label>
-    <textarea id="taste" placeholder="Ex. Tanins soyeux, bonne acidité"></textarea>
+        <label for="colorDescription">Couleur du vin :</label>
+        <input type="text" id="colorDescription" name="colorDescription" placeholder="Rouge rubis, Grenat, Tuilé">
 
-    <label for="impression">Impression Générale</label>
-    <textarea id="impression" placeholder="Ex. Harmonie parfaite, excellent potentiel de garde"></textarea>
+        <label for="nose">Nez :</label>
+        <textarea id="nose" name="nose" placeholder="Arômes de fruits rouges" required></textarea>
 
-    <button type="button" onclick="saveWine()">Enregistrer</button>
-  </form>
+        <label for="taste">Goût :</label>
+        <textarea id="taste" name="taste" placeholder="Fruité, Tanins bien présents" required></textarea>
 
-  <div class="output" id="output"></div>
+        <label for="overallImpression">Impression générale :</label>
+        <textarea id="overallImpression" name="overallImpression" placeholder="Vin élégant et bien équilibré" required></textarea>
 
-  <script src="script.js"></script>
+        <button type="button" id="generatePDFButton">Enregistrer en PDF</button>
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>
