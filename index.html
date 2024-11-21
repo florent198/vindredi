@@ -1,54 +1,127 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de Dégustation de Vin</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Icône Instagram -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Fiche de Dégustation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #6a1b9a;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #6a1b9a;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6a1b9a;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #8e24aa;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="header">
-        <h1>Fiche de Dégustation de Vin</h1>
-        <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank" class="instagram-icon">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
+    <header>
+        <h1>Fiche de Dégustation</h1>
+    </header>
 
-    <form id="tastingForm">
-        <label for="tasterName">Prénom du dégustateur :</label>
-        <input type="text" id="tasterName" name="tasterName" placeholder="Jean" required>
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#fiches">Fiches</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-        <label for="wineName">Nom du vin :</label>
-        <input type="text" id="wineName" name="wineName" placeholder="Château Margaux" required>
+    <main>
+        <section id="accueil">
+            <h2>Bienvenue !</h2>
+            <p>Découvrez nos fiches de dégustation pour explorer et noter vos découvertes œnologiques. Apprenez-en plus sur chaque vin avec des descriptions détaillées.</p>
+            <a href="#fiches" class="btn">Voir les fiches</a>
+        </section>
 
-        <label for="wineColor">Couleur :</label>
-        <select id="wineColor" name="wineColor">
-            <option value="Rouge">Rouge</option>
-            <option value="Blanc">Blanc</option>
-            <option value="Rosé">Rosé</option>
-        </select>
+        <section id="fiches">
+            <h2>Nos Fiches de Dégustation</h2>
+            <p>Retrouvez ici toutes vos fiches classées par catégorie. Sélectionnez une fiche pour en savoir plus et ajouter vos notes personnelles.</p>
+        </section>
 
-        <label for="wineLabelImage">Prendre une photo de l'étiquette ou télécharger une image :</label>
-        <input type="file" id="wineLabelImage" name="wineLabelImage" accept="image/*">
-        <button type="button" id="takePhotoButton">Prendre une photo</button>
+        <section id="contact">
+            <h2>Contactez-nous</h2>
+            <p>Vous avez des questions ou des suggestions ? N'hésitez pas à nous écrire à <a href="mailto:contact@degustation.com">contact@degustation.com</a>.</p>
+        </section>
+    </main>
 
-        <label for="colorDescription">Couleur du vin :</label>
-        <input type="text" id="colorDescription" name="colorDescription" placeholder="Rouge rubis, Grenat, Tuilé">
-
-        <label for="nose">Nez :</label>
-        <textarea id="nose" name="nose" placeholder="Arômes de fruits rouges" required></textarea>
-
-        <label for="taste">Goût :</label>
-        <textarea id="taste" name="taste" placeholder="Fruité, Tanins bien présents" required></textarea>
-
-        <label for="overallImpression">Impression générale :</label>
-        <textarea id="overallImpression" name="overallImpression" placeholder="Vin élégant et bien équilibré" required></textarea>
-
-        <button type="button" id="generatePDFButton">Enregistrer en PDF</button>
-    </form>
-
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Fiche de Dégustation. Tous droits réservés.</p>
+    </footer>
 </body>
+
 </html>
