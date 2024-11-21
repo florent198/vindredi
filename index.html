@@ -1,102 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fiche de Dégustation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Ajout du script jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Lien vers la bibliothèque Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Style principal */
+    /* Style général du formulaire */
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f8f8f8;
-      color: #333;
+      background: linear-gradient(to bottom right, #E04E39, #FFB84D); /* Dégradé du rouge tuilé au jaune or */
+      color: #333; /* Couleur du texte */
     }
 
-    header {
-      background-color: #6a1b9a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-family: 'Merriweather', serif;
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    nav {
-      background-color: #4a148c;
+    /* Mise en page flexbox pour aligner le titre et l'icône Instagram */
+    .header {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a; /* Fond noir pour l'en-tête */
       padding: 10px;
     }
 
-    nav a {
-      color: white;
+    .header h1 {
+      margin: 0;
+      color: #FFB84D; /* Couleur or pour le titre */
+    }
+
+    .header a {
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
+      color: #E04E39; /* Couleur rouge tuilé pour l'icône Instagram */
+      font-size: 24px;
     }
 
-    nav a:hover {
-      color: #ffd54f;
+    /* Mise en page flexbox pour les labels et champs de saisie */
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    section {
-      margin: 20px auto;
-      padding: 20px;
+    /* Labels en or */
+    .form-group label {
+      width: 30%;
+      margin-right: 10px;
+      color: #FFB84D; /* Or */
+    }
+
+    /* Champs de saisie et sélection */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 65%;
+      padding: 8px;
+      border: 1px solid #E04E39; /* Bordure rouge tuilé */
+      border-radius: 4px;
+      background-color: #f4f4f4;
+    }
+
+    /* Style du formulaire */
+    form {
       max-width: 800px;
-      background: white;
+      margin: auto;
+      background-color: #fff; /* Fond blanc pour le formulaire */
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #6a1b9a;
-      color: white;
-      margin-top: 20px;
-    }
-
+    /* Bouton en rouge tuilé */
     button {
-      background-color: #6a1b9a;
+      background-color: #E04E39; /* Rouge tuilé */
       color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 10px 15px;
       cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s;
+      border-radius: 4px;
+      width: 100%;
+      font-weight: bold;
     }
 
     button:hover {
-      background-color: #5e35b1;
+      background-color: #C5382F; /* Couleur légèrement plus foncée au survol */
+    }
+
+    /* Ajustement de l'espace et des styles pour les zones de texte */
+    textarea {
+      height: 120px;
+      resize: none;
+      background-color: #f4f4f4; /* Fond gris clair pour les zones de texte */
+    }
+
+    /* Formulaire et texte général */
+    textarea, input, select {
+      font-size: 14px;
+    }
+
+    #output {
+      margin-top: 20px;
+      color: #1a1a1a;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fiche de Dégustation</h1>
-  </header>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">À propos</a>
-    <a href="#">Contact</a>
-  </nav>
-  <section>
-    <h2>Bienvenue</h2>
-    <p>Ceci est votre espace pour noter vos dégustations de vin. Ajoutez une fiche ci-dessous.</p>
-    <button onclick="addCard()">Ajouter une fiche</button>
-    <div id="cardContainer"></div>
-  </section>
-  <footer>
-    &copy; 2024 Florenza Couture
-  </footer>
+  <!-- Conteneur header avec flexbox -->
+  <div class="header">
+    <h1>Fiche de Dégustation de Vin</h1>
+    <!-- Icône Instagram avec le lien -->
+    <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  
+  <form id="wineForm">
+    <!-- Prénom du dégustateur -->
+    <div class="form-group">
+      <label for="tasterName">Prénom du dégustateur</label>
+      <input type="text" id="tasterName" placeholder="Ex: Jean" required><br><br>
+    </div>
+
+    <!-- Nom du vin -->
+    <div class="form-group">
+      <label for="name">Nom du vin</label>
+      <input type="text" id="name" placeholder="Ex: Château Rayas" required><br><br>
+    </div>
+
+    <!-- Millésime -->
+    <div class="form-group">
+      <label for="vintage">Millésime</label>
+      <input type="number" id="vintage" placeholder="2005" required><br><br>
+    </div>
+
+    <!-- Région -->
+    <div class="form-group">
+      <label for="region">Région</label>
+      <input type="text" id="region" placeholder="Ex: Chateauneuf du Pape" required><br><br>
+    </div>
+
+    <!-- Couleur -->
+    <div class="form-group">
+      <label for="color">Couleur</label>
+      <select id="color" required>
+        <option value="Rouge">Rouge</option>
+        <option value="Blanc">Blanc</option>
+        <option value="Rosé">Rosé</option>
+      </select><br><br>
+    </div>
+
+    <!-- Nez -->
+    <div class="form-group">
+      <label for="nose">Nez</label>
+      <textarea id="nose" placeholder="Ex: Arômes de fruits rouges, épices, bois" required></textarea>
+    </div>
+
+    <!-- Goût -->
+    <div class="form-group">
+      <label for="taste">Goût</label>
+      <textarea id="taste" placeholder="Ex: Tanins souples, acidité bien équilibrée" required></textarea>
+    </div>
+
+    <!-- Impression Générale -->
+    <div class="form-group">
+      <label for="impression">Impression Générale</label>
+      <textarea id="impression" placeholder="Ex: Très bon vin, à conserver quelques années" required></textarea>
+    </div>
+
+    <!-- Photo de l'étiquette -->
+    <div class="form-group">
+      <label for="capture">Prendre une photo de l'étiquette</label>
+      <input type="file" id="capture" accept="image/*;capture=camera"><br><br>
+    </div>
+
+    <!-- Bouton enregistrer -->
+    <button type="button" onclick="saveWine()">Enregistrer en PDF</button>
+  </form>
+
+  <div id="output"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
