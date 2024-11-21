@@ -1,6 +1,4 @@
-// Fonction pour générer et enregistrer le PDF
 function saveWine() {
-  // Créer une nouvelle instance jsPDF
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   
