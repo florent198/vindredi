@@ -31,6 +31,23 @@ function saveWine() {
   doc.text('Impression générale :', 10, 130);
   doc.text(impression, 10, 140);
 
-  // Enregistrer le PDF sans image
-  doc.save('fiche_de_degustation_vin.pdf');
+  // Si une photo de l'étiquette est prise (si c'est possible d'enregistrer des images via la capture)
+  const photoInput = document.getElementById('capture');
+  if (photoInput.files.length > 0) {
+    const file = photoInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const img = e.target.result;
+      doc.addImage(img, 'JPEG', 10, 150, 180, 100); // Ajout de l'image
+      // Enregistrer le PDF avec l'image de l'étiquette
+      doc.save('fiche_de_degustation_vin.pdf');
+    };
+
+    // Lire l'image sélectionnée
+    reader.readAsDataURL(file);
+  } else {
+    // Enregistrer le PDF sans image
+    doc.save('fiche_de_degustation_vin.pdf');
+  }
 }
