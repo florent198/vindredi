@@ -39,8 +39,9 @@ function saveWine() {
 
     reader.onload = function(e) {
       const img = e.target.result;
-      doc.addImage(img, 'JPEG', 10, 150, 180, 100); // Ajout de l'image
-      // Enregistrer le PDF avec l'image de l'étiquette
+      
+      // Ajout de l'image au PDF
+      doc.addImage(img, 'JPEG', 10, 150, 180, 100); // Les paramètres de position et de taille peuvent être ajustés
       doc.save('fiche_de_degustation_vin.pdf');
     };
 
