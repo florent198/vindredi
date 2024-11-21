@@ -1,127 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de Dégustation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiche de Dégustation</title>
+  <!-- Importation des polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Style intégré -->
+  <style>
+    /* Style principal */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
+    header {
+      background-color: #6a1b9a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-        header {
-            background: #6a1b9a;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-        }
+    header h1 {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      font-size: 2.5rem;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-        }
+    nav {
+      background-color: #4a148c;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
 
-        nav {
-            background: #333;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: background 0.3s;
-        }
+    nav a:hover {
+      color: #ffd54f;
+    }
 
-        nav a:hover {
-            background: #6a1b9a;
-        }
+    section {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #6a1b9a;
+      color: white;
+      margin-top: 20px;
+    }
 
-        section {
-            margin-bottom: 20px;
-        }
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
+    button:hover {
+      background-color: #5e35b1;
+    }
 
-        footer p {
-            font-size: 0.9rem;
-        }
+    /* Style des fiches */
+    .card {
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
 
-        .btn {
-            display: inline-block;
-            background: #6a1b9a;
-            color: #fff;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+    .card textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
 
-        .btn:hover {
-            background: #8e24aa;
-        }
-    </style>
-</head>
+    .card button {
+      margin-top: 10px;
+      background-color: #e53935;
+      border-color: #e53935;
+    }
 
-<body>
-    <header>
-        <h1>Fiche de Dégustation</h1>
-    </header>
-
-    <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#fiches">Fiches</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <main>
-        <section id="accueil">
-            <h2>Bienvenue !</h2>
-            <p>Découvrez nos fiches de dégustation pour explorer et noter vos découvertes œnologiques. Apprenez-en plus sur chaque vin avec des descriptions détaillées.</p>
-            <a href="#fiches" class="btn">Voir les fiches</a>
-        </section>
-
-        <section id="fiches">
-            <h2>Nos Fiches de Dégustation</h2>
-            <p>Retrouvez ici toutes vos fiches classées par catégorie. Sélectionnez une fiche pour en savoir plus et ajouter vos notes personnelles.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contactez-nous</h2>
-            <p>Vous avez des questions ou des suggestions ? N'hésitez pas à nous écrire à <a href="mailto:contact@degustation.com">contact@degustation.com</a>.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Fiche de Dégustation. Tous droits réservés.</p>
-    </footer>
-</body>
-
-</html>
