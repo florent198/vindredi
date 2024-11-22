@@ -10,66 +10,69 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      background: linear-gradient(to right, #e3a6ab, #f9dfe2); /* Dégradé rubis clair */
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to right, #e8a2a8, #f7ccd1); /* Dégradé rubis clair */
+      height: 100vh;
     }
 
     .container {
       width: 100%;
       max-width: 800px;
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
       background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      text-align: center; /* Centre le contenu */
     }
 
     .header {
-      text-align: center;
       margin-bottom: 20px;
     }
 
     .header h1 {
       margin: 0;
-      font-size: 24px; /* Taille du titre ajustée */
+      font-size: 28px; /* Taille augmentée */
       color: #9B2D20; /* Rouge tuilé */
     }
 
     .header a {
-      display: inline-block;
       margin-top: 10px;
+      font-size: 28px; /* Taille ajustée */
+      color: #E4405F; /* Couleur Instagram */
       text-decoration: none;
-      font-size: 28px; /* Taille de l'icône ajustée */
     }
 
     .header a i {
-      color: #E4405F; /* Couleur officielle d'Instagram */
+      margin-left: 10px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px; /* Espacement entre les champs */
+      gap: 15px;
     }
 
     .form-group {
-      display: flex;
-      flex-direction: column;
+      text-align: left; /* Alignement du label */
+      margin-bottom: 10px;
     }
 
     .form-group label {
-      margin-bottom: 5px;
       font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
+      width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 5px;
     }
 
     textarea {
@@ -78,13 +81,14 @@
     }
 
     button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
+      width: 100%;
+      padding: 10px;
       font-size: 16px;
+      color: white;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     button:hover {
