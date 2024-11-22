@@ -7,6 +7,9 @@
   <meta name="description" content="Créez votre fiche de dégustation personnalisée pour des vins prestigieux comme Château Rayas, Pétrus, Château Margaux, Domaine de la Romanée-Conti, Château Lafite Rothschild, Mouton Rothschild, Domaine Leflaive, Clos Vougeot, et bien d'autres. Idéal pour les amateurs de vins rouges, blancs et rosés. Explorez des millésimes et des régions viticoles de renommée mondiale comme Bordeaux, Bourgogne, Chablis, Napa Valley, et Châteauneuf-du-Pape. Une fiche de dégustation professionnelle et numérique pour des évaluations détaillées.">
   <title>Fiche de Dégustation de Vin Numérique</title>
 
+  <!-- Lien vers la bibliothèque d'icônes -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <style>
     /* Style général */
     body {
@@ -36,6 +39,10 @@
       text-decoration: none;
       color: white;
       font-size: 30px;
+    }
+
+    .header a i {
+      font-size: 28px; /* Taille de l'icône Instagram */
     }
 
     /* Contenu du formulaire */
@@ -195,6 +202,46 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    async function saveWine() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const tasterName = document.getElementById('tasterName').value;
+      const name = document.getElementById('name').value;
+      const vintage = document.getElementById('vintage').value;
+      const region = document.getElementById('region').value;
+      const color = document.getElementById('color').value;
+      const nose = document.getElementById('nose').value;
+      const taste = document.getElementById('taste').value;
+      const impression = document.getElementById('impression').value;
+
+      doc.setFontSize(16);
+      doc.text("Fiche de Dégustation de Vin", 20, 20);
+      doc.setFontSize(12);
+      doc.text(`Prénom du dégustateur : ${tasterName}`, 20, 40);
+      doc.text(`Nom du vin : ${name}`, 20, 50);
+      doc.text(`Millésime : ${vintage}`, 20, 60);
+      doc.text(`Région : ${region}`, 20, 70);
+      doc.text(`Couleur : ${color}`, 20, 80);
+      doc.text(`Nez : ${nose}`, 20, 90);
+      doc.text(`Goût : ${taste}`, 20, 100);
+      doc.text(`Impression Générale : ${impression}`, 20, 110);
+
+      const photoInput = document.getElementById('photo');
+      if (photoInput.files.length > 0) {
+        const file = photoInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imgData = e.target.result;
+          doc.addImage(imgData, 'JPEG', 20, 120, 60, 60);
+          doc.save('fiche_degustation.pdf');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        doc.save('fiche_degustation.pdf');
+      }
+    }
+  </script>
 </body>
 </html>
