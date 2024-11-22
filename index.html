@@ -12,11 +12,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(to right, #f5c6cb, #fadadd); /* Dégradé rubis clair */
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* Aligner le contenu au-dessus pour tout afficher */
+      padding-top: 20px; /* Ajout d'un espace au sommet */
     }
 
     .container {
@@ -27,18 +28,20 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
       text-align: center;
+      box-sizing: border-box;
     }
 
     .header h1 {
       font-size: 28px;
       color: #9B2D20; /* Rouge tuilé */
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .header a {
       color: #E4405F;
       font-size: 28px;
       text-decoration: none;
+      margin-top: 10px;
     }
 
     form {
@@ -56,6 +59,7 @@
       font-weight: bold;
       margin-bottom: 5px;
       display: block;
+      text-align: left;
     }
 
     .form-group input,
