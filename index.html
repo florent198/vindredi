@@ -7,63 +7,55 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Style général */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #e3a6ab, #f9dfe2); /* Dégradé rubis clair */
+      height: 100vh;
+      background: linear-gradient(to right, #f5c6cb, #fadadd); /* Dégradé rubis clair */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .container {
-      width: 100%;
+      width: 90%;
       max-width: 800px;
+      background-color: white;
       padding: 20px;
-      background-color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      text-align: center; /* Centre le contenu */
-    }
-
-    .header {
-      margin-bottom: 20px;
+      text-align: center;
     }
 
     .header h1 {
-      margin: 0;
-      font-size: 28px; /* Taille augmentée */
+      font-size: 28px;
       color: #9B2D20; /* Rouge tuilé */
+      margin-bottom: 10px;
     }
 
     .header a {
-      margin-top: 10px;
-      font-size: 28px; /* Taille ajustée */
-      color: #E4405F; /* Couleur Instagram */
+      color: #E4405F;
+      font-size: 28px;
       text-decoration: none;
-    }
-
-    .header a i {
-      margin-left: 10px;
     }
 
     form {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 15px;
     }
 
     .form-group {
-      text-align: left; /* Alignement du label */
-      margin-bottom: 10px;
+      width: 100%;
     }
 
     .form-group label {
       font-weight: bold;
-      display: block;
       margin-bottom: 5px;
+      display: block;
     }
 
     .form-group input,
@@ -73,6 +65,7 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box;
     }
 
     textarea {
@@ -104,7 +97,7 @@
         <i class="fab fa-instagram"></i>
       </a>
     </div>
-    
+
     <form id="wineForm">
       <div class="form-group">
         <label for="tasterName">Prénom du dégustateur</label>
