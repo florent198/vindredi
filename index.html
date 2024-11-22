@@ -16,8 +16,8 @@
       background: linear-gradient(to right, #f5c6cb, #fadadd); /* Dégradé rubis clair */
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* Aligner le contenu au-dessus pour tout afficher */
-      padding-top: 20px; /* Ajout d'un espace au sommet */
+      align-items: flex-start;
+      padding-top: 20px;
     }
 
     .container {
@@ -29,19 +29,27 @@
       border-radius: 10px;
       text-align: center;
       box-sizing: border-box;
+      position: relative; /* Nécessaire pour le positionnement absolu des éléments à l'intérieur */
+    }
+
+    /* Style de l'icône Instagram */
+    .instagram-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 28px;
+      color: #E4405F; /* Couleur Instagram */
+      text-decoration: none;
+    }
+
+    .instagram-icon:hover {
+      color: #d52d53; /* Couleur légèrement plus sombre au survol */
     }
 
     .header h1 {
       font-size: 28px;
       color: #9B2D20; /* Rouge tuilé */
       margin-bottom: 20px;
-    }
-
-    .header a {
-      color: #E4405F;
-      font-size: 28px;
-      text-decoration: none;
-      margin-top: 10px;
     }
 
     form {
@@ -95,11 +103,15 @@
 </head>
 <body>
   <div class="container">
+    <!-- Icône Instagram en haut à droite -->
+    <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" 
+       class="instagram-icon" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <!-- Titre de la fiche -->
     <div class="header">
       <h1>Fiche de Dégustation de Vin</h1>
-      <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
     </div>
 
     <form id="wineForm">
