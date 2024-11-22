@@ -3,190 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fiche de dégustation de vin numérique</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="keywords" content="dégustation de vin, fiche de dégustation, Château Rayas, Pétrus, Château Margaux, Domaine de la Romanée-Conti, Château Lafite Rothschild, Mouton Rothschild, Domaine Leflaive, Clos Vougeot, Bordeaux, Bourgogne, Chablis, Napa Valley, Châteauneuf-du-Pape, vin rouge, vin blanc, rosé, grands crus, millésime, guide de vin, amateur de vin, vins prestigieux, vins rares, grands millésimes, dégustation professionnelle, vin de collection, fiche de dégustation professionnelle, fiche de dégustation numérique">
+  <meta name="description" content="Créez votre fiche de dégustation personnalisée pour des vins prestigieux comme Château Rayas, Pétrus, Château Margaux, Domaine de la Romanée-Conti, Château Lafite Rothschild, Mouton Rothschild, Domaine Leflaive, Clos Vougeot, et bien d'autres. Idéal pour les amateurs de vins rouges, blancs et rosés. Explorez des millésimes et des régions viticoles de renommée mondiale comme Bordeaux, Bourgogne, Chablis, Napa Valley, et Châteauneuf-du-Pape. Une fiche de dégustation professionnelle et numérique pour des évaluations détaillées.">
+  <title>Fiche de Dégustation de Vin Numérique</title>
+
+  <!-- Lien vers la bibliothèque d'icônes -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <style>
+    /* Style général */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff; /* Fond blanc */
-      color: #333;
+      background-color: #f9f9f9; /* Fond blanc cassé */
+      color: #000; /* Texte noir */
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background-color: #ffffff; /* Blanc */
-      padding: 20px;
-    }
-
+    /* Mise en page du header */
     .header {
-      text-align: center;
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #800000; /* Rouge bordeaux */
+      color: white;
     }
 
     .header h1 {
-      color: #000000; /* Noir */
-      font-size: 24px;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 28px;
     }
 
     .header a {
-      position: absolute;
-      right: 0;
-      top: 10px;
-      color: #000000; /* Noir */
       text-decoration: none;
-      font-size: 24px;
+      color: white;
+      font-size: 30px;
     }
 
-    .header a:hover {
-      color: #d11149; /* Rouge rubis */
+    .header a i {
+      font-size: 28px; /* Taille de l'icône Instagram */
     }
 
-    .intro-text {
-      background-color: #ffffff;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-
-    .intro-text p {
-      font-size: 14px;
-      text-align: center;
-      color: #333333;
-    }
-
+    /* Contenu du formulaire */
     form {
-      display: flex;
-      flex-direction: column;
-      background-color: #d11149; /* Rouge rubis */
+      max-width: 800px;
+      margin: auto;
+      background-color: #eaeaea; /* Fond gris clair */
       padding: 20px;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin-top: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .form-group {
-      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #ffffff; /* Blanc */
+    .form-group label {
+      width: 30%;
+      margin-right: 10px;
+      color: #000; /* Texte noir */
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 65%;
+      padding: 8px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 14px;
-    }
-
-    textarea {
-      resize: none;
     }
 
     button {
-      background-color: #ffc107;
-      color: #000;
+      background-color: #800000; /* Rouge bordeaux */
+      color: white;
       padding: 10px 20px;
       border: none;
-      border-radius: 4px;
-      font-size: 16px;
       cursor: pointer;
-      text-align: center;
+      border-radius: 4px;
+      width: 100%;
     }
 
     button:hover {
-      background-color: #e0a800;
+      background-color: #5a0000; /* Rouge plus foncé */
     }
 
-    .book-section {
+    /* Textarea */
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    /* Zone du livre */
+    #book-section {
+      margin-top: 40px;
       text-align: center;
-      margin-top: 30px;
-      color: #333;
+      padding: 20px;
+      background-color: #eaeaea;
+      border-radius: 10px;
     }
 
-    .book-section a {
-      color: #d11149; /* Rouge rubis */
-      text-decoration: none;
+    #book-section a {
+      color: #800000; /* Lien rouge bordeaux */
+      font-weight: bold;
+      font-size: 18px;
     }
 
-    .book-section a:hover {
-      text-decoration: underline;
+    /* Description sous le titre */
+    .intro-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #000; /* Texte noir */
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Fiche de dégustation de vin numérique</h1>
-      <a href="https://www.instagram.com/florent198vin?igshid=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-    <div class="intro-text">
-      <p>
-        Remplissez cette fiche de dégustation de vin, ajoutez une photo de l'étiquette, enregistrez-la en PDF et partagez-la avec vos amis et votre famille. 
-        Une manière simple et moderne de conserver vos impressions sur vos vins préférés ! 
-        Que vous soyez un professionnel ou un amateur, cet outil est conçu pour répondre à vos besoins.
-      </p>
-    </div>
-    <form id="wineForm">
-      <div class="form-group">
-        <label for="tasterName">Prénom du dégustateur</label>
-        <input type="text" id="tasterName" placeholder="Ex: Jean" required>
-      </div>
-      <div class="form-group">
-        <label for="name">Nom du vin</label>
-        <input type="text" id="name" placeholder="Ex: Château Rayas" required>
-      </div>
-      <div class="form-group">
-        <label for="vintage">Millésime</label>
-        <input type="number" id="vintage" placeholder="2005" required>
-      </div>
-      <div class="form-group">
-        <label for="region">Région</label>
-        <input type="text" id="region" placeholder="Ex: Châteauneuf-du-Pape" required>
-      </div>
-      <div class="form-group">
-        <label for="color">Couleur</label>
-        <select id="color" required>
-          <option value="Rouge">Rouge</option>
-          <option value="Blanc">Blanc</option>
-          <option value="Rosé">Rosé</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="nose">Nez</label>
-        <textarea id="nose" placeholder="Ex: Arômes de fruits rouges, épices, bois" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="taste">Goût</label>
-        <textarea id="taste" placeholder="Ex: Tanins souples, acidité bien équilibrée" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="impression">Impression Générale</label>
-        <textarea id="impression" placeholder="Ex: Très bon vin, à conserver quelques années" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="photo">Photo de l'étiquette</label>
-        <input type="file" id="photo" accept="image/*;capture=camera">
-      </div>
-      <button type="button" onclick="saveWine()">Enregistrer en PDF</button>
-    </form>
-    <div class="book-section">
-      <p>Découvrez également mon carnet de dégustation de vin : <br>
-        <a href="https://www.amazon.fr/dp/B0BW2ZM2FT" target="_blank">
-          Carnet de dégustation de vin - Guide complet
-        </a>
-      </p>
-    </div>
+
+  <!-- Conteneur header avec flexbox -->
+  <div class="header">
+    <h1>Fiche de Dégustation de Vin Numérique</h1>
+    <!-- Icône Instagram -->
+    <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
+  
+  <!-- Texte explicatif sous le titre -->
+  <div class="intro-text">
+    <p>Remplissez cette fiche de dégustation de vin, ajoutez une photo de l'étiquette, enregistrez-la en PDF et partagez-la avec vos amis et votre famille. Une manière simple et moderne de conserver vos impressions sur vos vins préférés !</p>
+  </div>
+
+  <!-- Formulaire -->
+  <form id="wineForm">
+    <div class="form-group">
+      <label for="tasterName">Prénom du dégustateur</label>
+      <input type="text" id="tasterName" placeholder="Ex: Jean" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nom du vin</label>
+      <input type="text" id="name" placeholder="Ex: Château Rayas" required>
+    </div>
+
+    <div class="form-group">
+      <label for="vintage">Millésime</label>
+      <input type="number" id="vintage" placeholder="2005" required>
+    </div>
+
+    <div class="form-group">
+      <label for="region">Région</label>
+      <input type="text" id="region" placeholder="Ex: Chateauneuf du Pape" required>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Couleur</label>
+      <select id="color" required>
+        <option value="Rouge">Rouge</option>
+        <option value="Blanc">Blanc</option>
+        <option value="Rosé">Rosé</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nose">Nez</label>
+      <textarea id="nose" placeholder="Ex: Arômes de fruits rouges, épices, bois" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="taste">Goût</label>
+      <textarea id="taste" placeholder="Ex: Tanins souples, acidité bien équilibrée" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="impression">Impression Générale</label>
+      <textarea id="impression" placeholder="Ex: Très bon vin, à conserver quelques années" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="photo">Ajouter une photo (facultatif)</label>
+      <input type="file" id="photo" accept="image/*">
+    </div>
+
+    <button type="button" onclick="saveWine()">Enregistrer la fiche en PDF</button>
+  </form>
+
+  <!-- Section Livre -->
+  <div id="book-section">
+    <p>Découvrez mon livre : <strong>"Carnet de dégustation de vin : Guide complet pour apprendre à déguster un vin"</strong></p>
+    <p>50 fiches à remplir pour noter et évaluer vos dégustations de vin. Une excellente idée cadeau pour les épicuriens !</p>
+    <a href="https://www.amazon.fr/Carnet-dégustation-vin-dégustations-épicuriens/dp/B0BW2ZM2FT" target="_blank">
+      Achetez le Carnet de Dégustation sur Amazon
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     async function saveWine() {
       const { jsPDF } = window.jspdf;
