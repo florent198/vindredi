@@ -27,29 +27,36 @@
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      text-align: center;
       box-sizing: border-box;
-      position: relative; /* Nécessaire pour le positionnement absolu des éléments à l'intérieur */
+      text-align: center;
     }
 
-    /* Style de l'icône Instagram */
-    .instagram-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 28px;
-      color: #E4405F; /* Couleur Instagram */
-      text-decoration: none;
-    }
-
-    .instagram-icon:hover {
-      color: #d52d53; /* Couleur légèrement plus sombre au survol */
+    /* Style du header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
     .header h1 {
       font-size: 28px;
       color: #9B2D20; /* Rouge tuilé */
-      margin-bottom: 20px;
+      margin: 0;
+      flex: 1; /* Permet au titre de prendre tout l'espace disponible */
+      text-align: center;
+    }
+
+    /* Style de l'icône Instagram */
+    .instagram-icon {
+      font-size: 28px;
+      color: #E4405F; /* Couleur Instagram */
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .instagram-icon:hover {
+      color: #d52d53; /* Couleur légèrement plus sombre au survol */
     }
 
     form {
@@ -103,15 +110,13 @@
 </head>
 <body>
   <div class="container">
-    <!-- Icône Instagram en haut à droite -->
-    <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" 
-       class="instagram-icon" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-
-    <!-- Titre de la fiche -->
+    <!-- Conteneur pour le titre et l'icône Instagram -->
     <div class="header">
       <h1>Fiche de Dégustation de Vin</h1>
+      <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" 
+         class="instagram-icon" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
 
     <form id="wineForm">
