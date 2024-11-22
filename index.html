@@ -31,7 +31,6 @@
       text-align: center;
     }
 
-    /* Style du header */
     .header {
       display: flex;
       justify-content: space-between;
@@ -43,11 +42,10 @@
       font-size: 28px;
       color: #9B2D20; /* Rouge tuilé */
       margin: 0;
-      flex: 1; /* Permet au titre de prendre tout l'espace disponible */
+      flex: 1;
       text-align: center;
     }
 
-    /* Style de l'icône Instagram */
     .instagram-icon {
       font-size: 28px;
       color: #E4405F; /* Couleur Instagram */
@@ -56,7 +54,7 @@
     }
 
     .instagram-icon:hover {
-      color: #d52d53; /* Couleur légèrement plus sombre au survol */
+      color: #d52d53;
     }
 
     form {
@@ -106,11 +104,45 @@
     button:hover {
       background-color: #45a049;
     }
+
+    /* Style de la section livre */
+    .book-section {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #FBE9E7; /* Fond rubis clair pâle */
+      border: 1px solid #9B2D20; /* Bordure rouge tuilé */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-section h2 {
+      font-size: 24px;
+      color: #9B2D20; /* Rouge tuilé */
+      margin-bottom: 10px;
+    }
+
+    .book-section p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .book-section a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #E4405F; /* Rouge Instagram */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .book-section a:hover {
+      color: #d52d53;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Conteneur pour le titre et l'icône Instagram -->
     <div class="header">
       <h1>Fiche de Dégustation de Vin</h1>
       <a href="https://www.instagram.com/florent198vin?igsh=OGJreHBrYjhhOXgw&utm_source=qr" 
@@ -171,6 +203,19 @@
 
       <button type="button" onclick="saveWine()">Enregistrer en PDF</button>
     </form>
+
+    <!-- Section du livre -->
+    <div class="book-section">
+      <h2>Découvrez mon livre</h2>
+      <p>
+        <strong>Carnet de dégustation de vin :</strong> Guide complet pour apprendre à déguster un vin. 
+        50 fiches à remplir pour noter et évaluer vos dégustations de vin. Une idée cadeau parfaite pour les épicuriens !
+      </p>
+      <a href="https://www.amazon.fr/Carnet-dégustation-vin-dégustations-épicuriens/dp/B0BW2ZM2FT/ref=sr_1_28?dib=eyJ2IjoiMSJ9.Ks4krQo1uIL1jbvhNsCT8lNBYDmysGfM-7FVkQFxWfs_XDZFl-z1VsCpM1cTf04EvX4-EvG3SjW5_LCv_b59-bgA92hlDRYAWvvhBqa16k1RkijG2PMSUhkEUSuLa4u4UJDyLZQ0UwBMkoeAySh_MqGa5atu9do9gf2MiRwMEMcHGZE2SBAl_FcsmKHxPr1c9_Aa6OD-unWguZBL7o7gaC5YAELKBoGhpt5FslZwWUd2gxiJYYABrD_lQnjCuH8eOh-YykcXi9LvPuzBiLECJbhzMpnafYRrhFERyBFnXDE.07fQ0WGNYcuCHe0klZX76FOGfDitY3SZsRiVkOH7d7g&dib_tag=se&keywords=carnet+de+vin&qid=1732270904&sr=8-28" 
+         target="_blank">
+        Commander maintenant sur Amazon
+      </a>
+    </div>
   </div>
 
   <script src="script.js"></script>
